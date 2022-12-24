@@ -2,14 +2,14 @@ import cv2
 import imutils
 import numpy as np
 
-
+IMAGE_NAME = 'persons_office.jpg'
 NMS_THRESHOLD=0.3
 MIN_CONFIDENCE=0.2
 LABELS = open('./objetos.names').read().strip().split('\n')
 INDEX_PERSON_LABEL = LABELS.index('person')
 
 
-image = cv2.imread('./inputs/pedestre_noite.jpg')
+image = cv2.imread(f'./inputs/{IMAGE_NAME}')
 image = imutils.resize(image, width=700)
 
 model = cv2.dnn.readNet('./modelo/yolov4-tiny.cfg', './modelo/yolov4-tiny.weights')
